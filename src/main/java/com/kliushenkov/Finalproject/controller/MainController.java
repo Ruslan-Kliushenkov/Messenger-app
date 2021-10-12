@@ -37,7 +37,7 @@ public class MainController {
         return "main";
     }
 
-    @PostMapping("/main")
+    @PostMapping("main")
     public String add(
             @AuthenticationPrincipal User user,
             @RequestParam String text,
@@ -69,15 +69,19 @@ public class MainController {
         return "main";
     }
 
-    /*@PostMapping("delete")
+    @PostMapping("delete")
     public String delete(@RequestParam String id, Map<String, Object> model){
-        if(messageRepo.findById(Long.parseLong(id)).isPresent()) {
-            messageRepo.deleteById(Long.parseLong(id));
-        }
-        Iterable<Message> messages = messageRepo.findAll();
 
-        model.put("messages", messages);
+        if(id.matches("[0-9]+")) {
+            if (messageRepo.findById(Long.parseLong(id)).isPresent()) {
+                messageRepo.deleteById(Long.parseLong(id));
+            }
+        }
+            Iterable<Message> messages = messageRepo.findAll();
+
+            model.put("messages", messages);
+
 
         return "main";
-    }*/
+    }
 }
