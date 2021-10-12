@@ -68,7 +68,7 @@ public class MainController {
 
         return "main";
     }
-    //!!!
+
     @PostMapping("delete")
     public String delete(@RequestParam String id, Map<String, Object> model){
 
