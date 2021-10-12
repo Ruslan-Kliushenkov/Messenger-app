@@ -68,4 +68,16 @@ public class MainController {
 
         return "main";
     }
+
+    /*@PostMapping("delete")
+    public String delete(@RequestParam String id, Map<String, Object> model){
+        if(messageRepo.findById(Long.parseLong(id)).isPresent()) {
+            messageRepo.deleteById(Long.parseLong(id));
+        }
+        Iterable<Message> messages = messageRepo.findAll();
+
+        model.put("messages", messages);
+
+        return "main";
+    }*/
 }
